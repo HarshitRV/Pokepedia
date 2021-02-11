@@ -26,7 +26,7 @@ Commands
 ++water |
 ++search / ++s |
 Search Pokemon by number eg : ++s 1 |
-++name 
+++name  
 Search Pokemon images by name try : ++name pikachu
 
 Support server for this bot : https://discord.gg/pbRtbJX5Sf
