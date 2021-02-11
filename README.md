@@ -3,29 +3,30 @@ A simple bot that give info on all 18 different types of pokemon . This is a sim
 Making this bot was a good way of applying what I learned in python , of course there is lot more to learn .
 
 Command prefix : ++
+
 Commands
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-bug
-dark
-dragon
-electric
-fairy
-fighting
-fire
-flying
-ghost
-grass
-ground
-ice
-normal
-poison
-psychic
-rock
-steel
-water
-++search / ++s
+
+++bug |
+++dark  |
+++dragon |
+++electric |
+++fairy |
+++fighting |
+++fire |
+++flying |
+++ghost |
+++grass |
+++ground |
+++ice |
+++normal |
+++poison |
+++psychic |
+++rock |
+++steel |
+++water |
+++search / ++s |
 Search Pokemon by number eg : ++s 1
-++name
+++name |
 Search Pokemon images by name try : ++name pikachu
 
 Support server for this bot : https://discord.gg/pbRtbJX5Sf
