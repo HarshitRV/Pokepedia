@@ -25,9 +25,10 @@ Commands
 ++steel |
 ++water |
 ++search / ++s |
-Search Pokemon by number eg : ++s 1
-++name |
+Search Pokemon by number eg : ++s 1 |
+++name 
 Search Pokemon images by name try : ++name pikachu
 
 Support server for this bot : https://discord.gg/pbRtbJX5Sf
+
 Invite the live version of this bot : bit.ly/invite_pokepedia
