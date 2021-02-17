@@ -26,8 +26,8 @@ bot.loop.create_task(ch_presence())
 @commands.command(aliases=['help','h'])
 async def halp(ctx):
   embed=discord.Embed(
-    title='Help',
-    description='This bot gives info on a specific type of pokemon eg : use ++normal {This will give info on normal type of pokemon}\nFor info on more type of pokemon use the following command',
+    title='Help\n-------------------------',
+    description='Join our [support server](https://discord.gg/pbRtbJX5Sf)\nChekout [github repository](https://github.com/lucifer00911/Pokepedia)\nInvite [Pokepedia](https://discord.com/oauth2/authorize?client_id=804665852221325342&permissions=379968&scope=bot)\nVote us on [top.gg](https://top.gg/bot/804665852221325342/vote)\n-------------------------',
     color=0xff00ff
   )
   embed.add_field(name='Prefix',
@@ -37,8 +37,10 @@ async def halp(ctx):
   embed.set_footer(text='Use ++invite to invite the bot')
   embed.add_field(name='++search / ++s',value='Search Pokemon by number eg : ++s 1',inline=False)
   embed.add_field(name='++name',value='Search Pokemon images by name try : ++name pikachu',inline=False)
+  embed.add_field(name='For giff lovers',value='Try ++giff',inline=False)
   embed.set_thumbnail(url="https://i.pinimg.com/originals/ce/cc/91/cecc913aee77c99b18d2043dbbd8bd72.gif")
   await ctx.send(embed=embed)
+
 bot.add_command(halp)
 
 #-----------------------------------------------------------------INVITE command------------------------------------------------------------------
@@ -327,7 +329,7 @@ async def sName(ctx,*,name='no'):
 
 bot.add_command(sName)
 
-#--------------------------------------------------------INVOKES ALL COMMANDS----------------------------------------------------------------------
+#------------------------------------------------------------INVOKES ALL COMMANDS----------------------------------------------------------------------
 
 @commands.command(aliases=['IO','all'])
 async def call_all(ctx):
@@ -370,29 +372,41 @@ async def call_all(ctx):
   await ctx.send("```That's All !```")
 bot.add_command(call_all)
 
-#------------------------------------------------------------------ANIMATED GIFFS------------------------------------------------------------------
-
-@commands.command(aliases=['e'])
-async def emojis(ctx,*,name='empty'):
-  if name=='mystic':
-    await ctx.send("https://emojis.slackmojis.com/emojis/images/1469201975/673/mystic.gif?1469201975")
-    
-  elif name=='dance':
-    await ctx.send("https://emojis.slackmojis.com/emojis/images/1469223471/679/charmander_dancing.gif?1469223471")
-  
-  elif name=='valor':
-    await ctx.send("https://emojis.slackmojis.com/emojis/images/1469202036/674/valor.gif?1469202036")
-    
-  elif name=='instinct':
-    await ctx.send("https://emojis.slackmojis.com/emojis/images/1469201940/672/instinct.gif?1469201940")
-
-  elif name=='hp':
-    await ctx.send("https://emojis.slackmojis.com/emojis/images/1450458394/182/pikachu.gif?1450458394")
-    
-  elif name=='empty':
-    await ctx.send("```Give following parameters : mystic,valor,instinct,dance,hypnosis | try : ++e hp```")
-   
-bot.add_command(emojis)
+#------------------------------------------------------------------GIFF COMMAND--------==----------------------------------------------------------
+@commands.command()
+async def giff(ctx):
+  embed=discord.Embed(
+    title='Gif Commands',
+    description='Try these commands on your server for some cool gifs eg : ++g mystic',
+    color=0xff00ff
+  )
+  embed.add_field(name='Giffs [use ++g then name of gifs listed below]',value='1.Hypnosis Pika(++g hp)\n2.Mystic Logo(++g my)\n3.Valor Logo(++g va)\n4.Instinct Logo(++g in)\n5.Dancing Dragonite(++g dance)',inline=False)
+  embed.set_thumbnail(url='https://i.imgur.com/OqMXWbD.jpg')
+  embed.set_footer(text='Join our support server for adding custom gifs')
+  await ctx.author.send(embed=embed)
+  await ctx.send("``Check DM``")
+bot.add_command(giff)
+#-------------------------------------------------------------------GIFFS COMMAND-------------------------------------------------------------------
+@commands.command(aliases=['g'])
+async def giffs(ctx,*,name='empty'):
+    if name=='empty':
+        await ctx.send('```Give following parameters : hp , mystic , valor , in , dance```')
+    if name=='hp':
+        await ctx.send("https://emojis.slackmojis.com/emojis/images/1450458394/182/pikachu.gif?1450458394")
+        await ctx.message.delete()
+    if name=='mystic':
+        await ctx.send("https://emojis.slackmojis.com/emojis/images/1469201975/673/mystic.gif?1469201975")
+        await ctx.message.delete()
+    if name=='dance':
+        await ctx.send("https://emojis.slackmojis.com/emojis/images/1469223471/679/charmander_dancing.gif?1469223471")
+        await ctx.message.delete()
+    if name=='valor':
+        await ctx.send("https://emojis.slackmojis.com/emojis/images/1469202036/674/valor.gif?1469202036")
+        await ctx.message.delete()
+    if name=='in':
+        await ctx.send("https://emojis.slackmojis.com/emojis/images/1469201940/672/instinct.gif?1469201940")
+        await ctx.message.delete()
+bot.add_command(giffs)
 
 #DEVLOPED BY : WOLVERINE#3940
 #LINKEDIN : https://www.linkedin.com/in/harshit-kr-vishwakarma-b57b8b175/
