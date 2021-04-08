@@ -56,16 +56,16 @@ async def invite(ctx):
   await ctx.send(embed=embed)
 bot.add_command(invite)
 
-#-------------------------------------PING COMMAND---------------------------------------------
 
-#-----------------------------------------------------------PING COMMAND-------------------------------------------------------------------------
+
+#-------------------------------------------------------------------------------PING COMMAND-------------------------------------------------------------------------------------
 @commands.command()
 async def ping(ctx):
   embed=discord.Embed(title='Pokepedia',timestamp=datetime.datetime.utcnow(),description=f'Ping : `{round(bot.latency * 1000)}ms`\nPlaying on `{len(bot.guilds)}` servers',color=0xF00091 )
   embed.set_footer(text='\u200b')
   await ctx.send(embed=embed)
 bot.add_command(ping)
-#----------------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------NORMAL TYPE---------------------------------------------------------------------------------------
 @commands.command()
 async def normal(ctx):
     embed=discord.Embed(
@@ -75,7 +75,7 @@ async def normal(ctx):
     embed.set_thumbnail(url="https://i.imgur.com/PdDUKBT.gif")
     await ctx.send(embed=embed)
 bot.add_command(normal)
-#-------------------------------------------------------------fighting TYPE------------------------------------------------------------------------
+#-----------------------------------------------------------------------------FIGHTING TYPE--------------------------------------------------------------------------------------
 @commands.command(aliases=['fight'])
 async def fighting(ctx):
     embed=discord.Embed(
@@ -85,7 +85,7 @@ async def fighting(ctx):
     embed.set_thumbnail(url="https://i.imgur.com/d7yQufV.gif")
     await ctx.send(embed=embed)
 bot.add_command(fighting)
-#-----------------------------------------------------------------------------FLYING TYPE---------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------FLYING TYPE---------------------------------------------------------------------------------------
 @commands.command()
 async def flying(ctx):
   embed=discord.Embed(
@@ -95,7 +95,7 @@ async def flying(ctx):
   embed.set_thumbnail(url="https://i.imgur.com/MWjhVyj.gif")
   await ctx.send(embed=embed)
 bot.add_command(flying)
-#-----------------------------------------------------------------------------POISON TYPE---------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------POISON TYPE---------------------------------------------------------------------------------------
 @commands.command()
 async def poison(ctx):
     embed=discord.Embed(
@@ -115,7 +115,7 @@ async def ground(ctx):
     embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/805113889418510346/805116049430675486/1111.gif")
     await ctx.send(embed=embed)
 bot.add_command(ground)
-#-----------------------------------------------------------------------------ROCK TYPE---------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------ROCK TYPE---------------------------------------------------------------------------------------
 @commands.command()
 async def rock(ctx):
     embed=discord.Embed(
@@ -125,7 +125,7 @@ async def rock(ctx):
     embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/805113889418510346/805116673707081759/11112.gif")
     await ctx.send(embed=embed)
 bot.add_command(rock)
-#-----------------------------------------------------------------------------BUG TYPE---------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------BUG TYPE---------------------------------------------------------------------------------------
 @commands.command()
 async def bug(ctx):
     embed=discord.Embed(
@@ -135,7 +135,7 @@ async def bug(ctx):
     embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/805113889418510346/805748308839891004/984889.gif")
     await ctx.send(embed=embed)
 bot.add_command(bug)
-#-----------------------------------------------------------------------------GHOST TYPE---------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------GHOST TYPE---------------------------------------------------------------------------------------
 @commands.command()
 async def ghost(ctx):
     embed=discord.Embed(
@@ -145,7 +145,7 @@ async def ghost(ctx):
     embed.set_thumbnail(url="https://i.imgur.com/PcFJp4L.gif")
     await ctx.send(embed=embed)
 bot.add_command(ghost)
-#-----------------------------------------------------------------------------STEEL TYPE---------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------STEEL TYPE---------------------------------------------------------------------------------------
 @commands.command()
 async def steel(ctx):
     embed=discord.Embed(
@@ -155,7 +155,7 @@ async def steel(ctx):
     embed.set_thumbnail(url="https://media.giphy.com/media/ZBexIRI4raU0YIruAW/giphy.gif")
     await ctx.send(embed=embed)
 bot.add_command(steel)
-#-----------------------------------------------------------------------------FIRE TYPE---------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------FIRE TYPE---------------------------------------------------------------------------------------
 @commands.command()
 async def fire(ctx):
     embed=discord.Embed(
@@ -165,7 +165,7 @@ async def fire(ctx):
     embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/805113889418510346/805126023417954324/154848.gif")
     await ctx.send(embed=embed)
 bot.add_command(fire)
-#-----------------------------------------------------------------------------WATER TYPE---------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------WATER TYPE---------------------------------------------------------------------------------------
 @commands.command()
 async def water(ctx):
     embed=discord.Embed(
@@ -175,7 +175,7 @@ async def water(ctx):
     embed.set_thumbnail(url="https://i.imgur.com/us6XOaF.gif")
     await ctx.send(embed=embed)
 bot.add_command(water)
-#-----------------------------------------------------------------------------GRASS TYPE---------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------GRASS TYPE---------------------------------------------------------------------------------------
 @commands.command()
 async def grass(ctx):
     embed=discord.Embed(
@@ -185,7 +185,7 @@ async def grass(ctx):
     embed.set_thumbnail(url="https://i.gifer.com/4o45.gif")
     await ctx.send(embed=embed)
 bot.add_command(grass)
-#---------------------------------------------------------------------------ELECTRIC TYPE---------------------------------------------------------------------------------------
+#----------------------------------------------------------------------------ELECTRIC TYPE---------------------------------------------------------------------------------------
 @commands.command()
 async def electric(ctx):
     embed=discord.Embed(
@@ -225,7 +225,7 @@ async def dragon(ctx):
     embed.set_thumbnail(url="https://i.imgur.com/NK1VH5b.gif")
     await ctx.send(embed=embed)
 bot.add_command(dragon)
-#-----------------------------------------------------------------------------FAIRY TYPE----------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------FAIRY TYPE----------------------------------------------------------------------------------------
 @commands.command()
 async def fairy(ctx):
     embed=discord.Embed(
@@ -261,7 +261,7 @@ async def search(ctx,i=1):
     print(str(e))
 
 bot.add_command(search)
-#------------------------------------------------------------------SEARCH POKEMON BY NAME---------------------------------------------------------------------------------------
+#-------------------------------------------------------------------SEARCH POKEMON BY NAME---------------------------------------------------------------------------------------
 @commands.command(aliases=['name'])
 async def sName(ctx,*,name='Missing argument name of the Pokemon'):
 
