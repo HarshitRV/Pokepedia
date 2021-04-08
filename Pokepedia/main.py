@@ -2,6 +2,7 @@ import discord
 import random
 import asyncio
 import os
+import datetime
 from discord.ext import commands
 from keep_alive import keep_alive
 bot = commands.Bot(command_prefix='++')
@@ -20,30 +21,33 @@ async def ch_presence():
     await asyncio.sleep(10)
 bot.loop.create_task(ch_presence())
 
-#------------------------------------------------------------HELP Command------------------------------------------------------------------------
+#HELP Commands
 @commands.command(aliases=['help','h'])
 async def halp(ctx):
   embed=discord.Embed(
-    title='Help\n-------------------------',
-    description='Join our [support server](https://discord.gg/pbRtbJX5Sf)\nChekout [github repository](https://github.com/lucifer00911/Pokepedia)\nInvite [Pokepedia](https://discord.com/oauth2/authorize?client_id=804665852221325342&permissions=379968&scope=bot)\nVote us on [top.gg](https://top.gg/bot/804665852221325342/vote)\n**-----------------------------**',
+    title='\nPokepedia Help',
+    timestamp=datetime.datetime.utcnow(),
     color=0xff00ff
   )
   embed.add_field(name='Prefix',
   value='++',inline=False)
   embed.add_field(name='Commands',
-  value='`bug` , `dark` , `dragon` , `electric` , `fairy` , `fighting` , `fire` , `flying` , `ghost` , `grass` , `ground` , `ice` , `normal` , `poison` , `psychic` , `rock` , `steel` , `water` ')
-  embed.add_field(name='++all',value='`Invokes all 18 commands listed above`',inline=False)
-  embed.set_footer(text='Use ++invite to invite the bot')
-  embed.add_field(name='++search / ++s',value='`Search Pokemon by number eg : ++s 1`',inline=False)
-  embed.add_field(name='++name',value='`Search Pokemon images by name try : ++name pikachu`',inline=False)
-  embed.add_field(name='For giff lovers',value='`Try ++giff`',inline=False)
+  value='`bug` , `dark` , `dragon` , `electric` , `fairy` , `fighting` , `fire` , `flying` , `ghost` , `grass` , `ground` , `ice` , `normal` , `poison` , `psychic` , `rock` , `steel` , `water` \n')
+  embed.add_field(name='++all',value='`Invokes all 18 commands listed above`\n',inline=False)
+  embed.add_field(name='++search / ++s',value='`Search Pokemon by number eg : ++s 1`\n',inline=False)
+  embed.add_field(name='++name',value='`Search Pokemon images by name try : ++name pikachu`\n',inline=False)
+  embed.add_field(name='For giff lovers',value='`Try ++giff`\n',inline=False)
   embed.add_field(name='Know a random Pokemon Fact',value='`Use ++f or ++fact`',inline=False)
-  embed.add_field(name='Fun Commands | TicTacToe and Magic 8 ball',value='`Play tictactoe by using command `\n`++ttt @mentionPlayer1 @mentionPlayer2`\n\n`Ask 8 ball question by using command ++8ball {Your question}`',inline=False)
+  embed.add_field(name='Play TicTacToe(++ttt)',value='`Play tictactoe by using command `\n`++ttt @mentionPlayer1 @mentionPlayer2`\n',inline=False)
+  embed.add_field(name='Play Rock Paper Scissor(++rps)',value='`Try ++rps rock`\n',inline=False)
+  embed.add_field(name='Play Magic 8 ball',value='`Try ++8ball <question>`\n',inline=False)
+  embed.add_field(name='Useful Links',value='[Support Server](https://discord.gg/pbRtbJX5Sf) | [GitHub](https://github.com/lucifer00911/Pokepedia) | [Invite](https://discord.com/oauth2/authorize?client_id=804665852221325342&permissions=379968&scope=bot) | [Vote !](https://top.gg/bot/804665852221325342/vote)',inline=False)
   embed.set_thumbnail(url="https://i.pinimg.com/originals/ce/cc/91/cecc913aee77c99b18d2043dbbd8bd72.gif")
+  embed.set_footer(text='\u200b')
   await ctx.send(embed=embed)
 
 bot.add_command(halp)
-#-----------------------------------------------------------INVITE commands------------------------------------------------------------------------
+#INVITE commands
 @commands.command()
 async def invite(ctx):
   embed=discord.Embed(title='Pokepedia',description='\n**Invite Link :** [Invite](https://discord.com/api/oauth2/authorize?client_id=804665852221325342&permissions=379968&scope=bot)\n**Support Server :** [Support](https://discord.gg/pbRtbJX5Sf)',
@@ -52,13 +56,16 @@ async def invite(ctx):
   await ctx.send(embed=embed)
 bot.add_command(invite)
 
+#-------------------------------------PING COMMAND---------------------------------------------
+
 #-----------------------------------------------------------PING COMMAND-------------------------------------------------------------------------
 @commands.command()
 async def ping(ctx):
-  embed=discord.Embed(title='PONG !',description=f'{round(bot.latency * 1000)}ms',color=0xF00091 )
+  embed=discord.Embed(title='Pokepedia',timestamp=datetime.datetime.utcnow(),description=f'Ping : `{round(bot.latency * 1000)}ms`\nPlaying on `{len(bot.guilds)}` servers',color=0xF00091 )
+  embed.set_footer(text='\u200b')
   await ctx.send(embed=embed)
 bot.add_command(ping)
-#------------------------------------------------------------NORMAL TYPE------------------------------------------------------------------------
+#----------------------------------------------------------------------------------------------
 @commands.command()
 async def normal(ctx):
     embed=discord.Embed(
@@ -78,7 +85,7 @@ async def fighting(ctx):
     embed.set_thumbnail(url="https://i.imgur.com/d7yQufV.gif")
     await ctx.send(embed=embed)
 bot.add_command(fighting)
-#---------------------------------------------------------------FLYING TYPE----------------------------------------------------------------------
+#-----------------------------------------------------------------------------FLYING TYPE---------------------------------------------------------------------------------------
 @commands.command()
 async def flying(ctx):
   embed=discord.Embed(
@@ -88,7 +95,7 @@ async def flying(ctx):
   embed.set_thumbnail(url="https://i.imgur.com/MWjhVyj.gif")
   await ctx.send(embed=embed)
 bot.add_command(flying)
-#---------------------------------------------------------------POISON TYPE----------------------------------------------------------------------
+#-----------------------------------------------------------------------------POISON TYPE---------------------------------------------------------------------------------------
 @commands.command()
 async def poison(ctx):
     embed=discord.Embed(
@@ -98,7 +105,7 @@ async def poison(ctx):
     embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/805113889418510346/805749181485678632/848488.gif")
     await ctx.send(embed=embed)
 bot.add_command(poison)
-#---------------------------------------------------------------GROUND TYPE------------------------------------------------------------------------
+#-----------------------------------------------------------------------------GROUND TYPE---------------------------------------------------------------------------------------
 @commands.command()
 async def ground(ctx):
     embed=discord.Embed(
@@ -108,7 +115,7 @@ async def ground(ctx):
     embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/805113889418510346/805116049430675486/1111.gif")
     await ctx.send(embed=embed)
 bot.add_command(ground)
-#---------------------------------------------------------------ROCK TYPE------------------------------------------------------------------------
+#-----------------------------------------------------------------------------ROCK TYPE---------------------------------------------------------------------------------------
 @commands.command()
 async def rock(ctx):
     embed=discord.Embed(
@@ -118,7 +125,7 @@ async def rock(ctx):
     embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/805113889418510346/805116673707081759/11112.gif")
     await ctx.send(embed=embed)
 bot.add_command(rock)
-#---------------------------------------------------------------BUGG TYPE------------------------------------------------------------------------
+#-----------------------------------------------------------------------------BUG TYPE---------------------------------------------------------------------------------------
 @commands.command()
 async def bug(ctx):
     embed=discord.Embed(
@@ -128,7 +135,7 @@ async def bug(ctx):
     embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/805113889418510346/805748308839891004/984889.gif")
     await ctx.send(embed=embed)
 bot.add_command(bug)
-#---------------------------------------------------------------GHOST TYPE------------------------------------------------------------------------
+#-----------------------------------------------------------------------------GHOST TYPE---------------------------------------------------------------------------------------
 @commands.command()
 async def ghost(ctx):
     embed=discord.Embed(
@@ -138,7 +145,7 @@ async def ghost(ctx):
     embed.set_thumbnail(url="https://i.imgur.com/PcFJp4L.gif")
     await ctx.send(embed=embed)
 bot.add_command(ghost)
-#---------------------------------------------------------------STEEL TYPE------------------------------------------------------------------------
+#-----------------------------------------------------------------------------STEEL TYPE---------------------------------------------------------------------------------------
 @commands.command()
 async def steel(ctx):
     embed=discord.Embed(
@@ -148,7 +155,7 @@ async def steel(ctx):
     embed.set_thumbnail(url="https://media.giphy.com/media/ZBexIRI4raU0YIruAW/giphy.gif")
     await ctx.send(embed=embed)
 bot.add_command(steel)
-#---------------------------------------------------------------FIRE TYPE------------------------------------------------------------------------
+#-----------------------------------------------------------------------------FIRE TYPE---------------------------------------------------------------------------------------
 @commands.command()
 async def fire(ctx):
     embed=discord.Embed(
@@ -158,7 +165,7 @@ async def fire(ctx):
     embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/805113889418510346/805126023417954324/154848.gif")
     await ctx.send(embed=embed)
 bot.add_command(fire)
-#---------------------------------------------------------------WATER TYPE------------------------------------------------------------------------
+#-----------------------------------------------------------------------------WATER TYPE---------------------------------------------------------------------------------------
 @commands.command()
 async def water(ctx):
     embed=discord.Embed(
@@ -168,7 +175,7 @@ async def water(ctx):
     embed.set_thumbnail(url="https://i.imgur.com/us6XOaF.gif")
     await ctx.send(embed=embed)
 bot.add_command(water)
-#---------------------------------------------------------------GRASS TYPE------------------------------------------------------------------------
+#-----------------------------------------------------------------------------GRASS TYPE---------------------------------------------------------------------------------------
 @commands.command()
 async def grass(ctx):
     embed=discord.Embed(
@@ -178,7 +185,7 @@ async def grass(ctx):
     embed.set_thumbnail(url="https://i.gifer.com/4o45.gif")
     await ctx.send(embed=embed)
 bot.add_command(grass)
-#---------------------------------------------------------------ELECTRIC TYPE------------------------------------------------------------------------
+#---------------------------------------------------------------------------ELECTRIC TYPE---------------------------------------------------------------------------------------
 @commands.command()
 async def electric(ctx):
     embed=discord.Embed(
@@ -188,7 +195,7 @@ async def electric(ctx):
     embed.set_thumbnail(url="https://img1.picmix.com/output/stamp/normal/4/8/0/4/1604084_93e2e.gif")
     await ctx.send(embed=embed)
 bot.add_command(electric)
-#---------------------------------------------------------------PSYCHIC TYPE------------------------------------------------------------------------
+#---------------------------------------------------------------------------PSYCHIC TYPE-----------------------------------------------------------------------------------------
 @commands.command()
 async def psychic(ctx):
     embed=discord.Embed(
@@ -198,7 +205,7 @@ async def psychic(ctx):
     embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/805113889418510346/805119836689530893/65564.gif")
     await ctx.send(embed=embed)
 bot.add_command(psychic)
-#---------------------------------------------------------------ICE TYPE------------------------------------------------------------------------
+#-----------------------------------------------------------------------------ICE TYPE------------------------------------------------------------------------------------------
 @commands.command()
 async def ice(ctx):
     embed=discord.Embed(
@@ -208,7 +215,7 @@ async def ice(ctx):
     embed.set_thumbnail(url="https://i.imgur.com/PrXXz6e.gif")
     await ctx.send(embed=embed)
 bot.add_command(ice)
-#---------------------------------------------------------------DRAGON TYPE------------------------------------------------------------------------
+#-----------------------------------------------------------------------------DRAGON TYPE----------------------------------------------------------------------------------------
 @commands.command()
 async def dragon(ctx):
     embed=discord.Embed(
@@ -218,7 +225,7 @@ async def dragon(ctx):
     embed.set_thumbnail(url="https://i.imgur.com/NK1VH5b.gif")
     await ctx.send(embed=embed)
 bot.add_command(dragon)
-#---------------------------------------------------------------FAIRY TYPE------------------------------------------------------------------------
+#-----------------------------------------------------------------------------FAIRY TYPE----------------------------------------------------------------------------------------
 @commands.command()
 async def fairy(ctx):
     embed=discord.Embed(
@@ -228,7 +235,7 @@ async def fairy(ctx):
     embed.set_thumbnail(url="https://thumbs.gfycat.com/OddBiodegradableAmphiuma-max-1mb.gif")
     await ctx.send(embed=embed)
 bot.add_command(fairy)
-#---------------------------------------------------------------DARK TYPE------------------------------------------------------------------------
+#-----------------------------------------------------------------------------DARK TYPE------------------------------------------------------------------------------------------
 @commands.command()
 async def dark(ctx):
     embed=discord.Embed(
@@ -238,15 +245,15 @@ async def dark(ctx):
     embed.set_thumbnail(url="https://i.imgur.com/FtfrpoZ.gif")
     await ctx.send(embed=embed)
 bot.add_command(dark)
-#---------------------------------------------------------------SEARCH BY NUMBER------------------------------------------------------------------
+#----------------------------------------------------------------------SEARCH POKEMON BY NUMBER----------------------------------------------------------------------------------
 @commands.command(aliases=['s'])
 async def search(ctx,i=1):
 
   try:
     req = 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/' + '{:03d}'.format(i) + '.png'
-    embed=discord.Embed(title='{:03d}'.format(i),color=0xff00ff)
+    embed=discord.Embed(title='{:03d}'.format(i),timestamp=datetime.datetime.utcnow(),color=0xff00ff)
     embed.set_image(url=req)
-    embed.set_footer(text='Invite me using ++invite')
+    embed.set_footer(text='\u200b')
     await ctx.send(embed=embed)
   except Exception as e:
 
@@ -254,14 +261,14 @@ async def search(ctx,i=1):
     print(str(e))
 
 bot.add_command(search)
-#---------------------------------------------------------------SEARCH BY NAME--------------------------------------------------------------------
+#------------------------------------------------------------------SEARCH POKEMON BY NAME---------------------------------------------------------------------------------------
 @commands.command(aliases=['name'])
 async def sName(ctx,*,name='Missing argument name of the Pokemon'):
 
   try:
     n=name.lower()
     req='https://img.pokemondb.net/artwork/large/'+n+'.jpg'
-    embed=discord.Embed(title=n,color=0xff00ff)
+    embed=discord.Embed(title=n,timestamp=datetime.datetime.utcnow(),color=0xff00ff)
     embed.set_image(url=req)
     embed.set_footer(text='No Image ? Spell check and try again!')
     await ctx.send(embed=embed)
@@ -271,7 +278,7 @@ async def sName(ctx,*,name='Missing argument name of the Pokemon'):
     print(str(e))
 
 bot.add_command(sName)
-#---------------------------------------------------------------CALL ALL COMMANDS-------------------------------------------------------------------
+#-------------------------------------------------------------------------CALL ALL AT ONCE---------------------------------------------------------------------------------------
 @commands.command(aliases=['IO','all'])
 async def call_all(ctx):
   await bug(ctx)
@@ -309,11 +316,10 @@ async def call_all(ctx):
   await steel(ctx)
   await asyncio.sleep(3)
   await water(ctx)
-  await asyncio.sleep(3)
   await ctx.send("```That's All !```")
 bot.add_command(call_all)
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-#--------------------------------------------------------------GIFF COMMAND HELP----------------------------------------------------------------
+
+#-------------------------------------------------------------------------------------GIFF COMMAND------------------------------------------------------------------------------
 @commands.command()
 async def giff(ctx):
   embed=discord.Embed(
@@ -327,7 +333,7 @@ async def giff(ctx):
   await ctx.author.send(embed=embed)
   await ctx.send("``Check DM``")
 bot.add_command(giff)
-#----------------------------------------------------------GIFFS COMMAND-------------------------------------------------------------------------
+#---------------------------------------------------------------------------------GIFFS COMMAND---------------------------------------------------------------------------------
 @commands.command(aliases=['g'])
 async def giffs(ctx,*,name='empty'):
     if name=='empty':
@@ -348,8 +354,8 @@ async def giffs(ctx,*,name='empty'):
         await ctx.send("https://emojis.slackmojis.com/emojis/images/1469201940/672/instinct.gif?1469201940")
         await ctx.message.delete()
 bot.add_command(giffs)
-#-----------------------------------------------------------------------------------------------------------------------------------------------
-#--------------------------------------------------------------RANDOM FACT-----------------------------------------------------------------------
+
+#---------------------------------------------------------------------------RANDOM FACT------------------------------------------------------------------------------------------
 @commands.command(aliases=['f','fact'])
 async def pokeFacts(ctx):
     responses = ['Bulbasaur is the first Pokemon in the Pokedex.',
@@ -378,7 +384,8 @@ async def pokeFacts(ctx):
                 'https://i.imgur.com/PbbC4dI.jpg']
     await ctx.send(random.choice(responses))
 bot.add_command(pokeFacts)
-#----------------------------------------------------------TIC TAC TOE---------------------------------------------------------------------------
+
+#-------------------------------------------------------------------------------TIC TAC TOE--------------------------------------------------------------------------------------
 player1 = ""
 player2 = ""
 turn = ""
@@ -524,12 +531,19 @@ async def quit(ctx):
   gameOver = True
   await ctx.send("```Game Over . Thanks for playing ! ```")
 bot.add_command(quit)
+
+#--------------------------------------------------------------------------------8 BALL------------------------------------------------------------------------------------------
+
 @commands.command(aliases=['8ball'])
 async def _8ball(ctx,question='empty'):
-  if question=='empty':
-    await ctx.send('`Ask a question`')
-  else:
-     responses = ['As I see it, yes.',
+  if question == 'empty':
+    await ctx.send("```Ask a question please | ++8ball <question>```")
+    return
+  
+  coloor=[0xff00ff,0xFC6700,0xF9FC00,0x74FC00,0x00FC16,
+            0x08E1B1,0x08BEE1,0x086CE1,0x0811E1,0xB609CD ,
+            0xCD09A0,0xCD097D ,0xCD0936,0xF70000]
+  responses = ['As I see it, yes.',
                  'Ask again later.',
                  'Better not tell you now.',
                  'Cannot predict now.',
@@ -551,14 +565,67 @@ async def _8ball(ctx,question='empty'):
                  'You may rely on it.',
                  'Are you kidding',
                  'Hell No']
-  await ctx.send(random.choice(responses))
+  embed=discord.Embed(
+  timestamp=datetime.datetime.utcnow(),
+  description=random.choice(responses),
+  color=random.choice(coloor)
+    )
+  embed.set_footer(text='\u200b')
+  await ctx.send(embed=embed)
 bot.add_command(_8ball)
 
+#--------------------------------------------------------------------------ROCK PAPER SCISSOR-----------------------------------------------------------------------------------
+@commands.command(aliases=['rps'])
+async def RockPaperScissor(ctx,userChoice='Nothing'): 
+    userWeapon=userChoice.lower()
+    if userWeapon!='rock' and userWeapon!='paper' and userWeapon!='scissor' and userWeapon!='nothing':
+      await ctx.send("Either choose `rock` or `paper` or `scissor`")
+      return
+    weapons=['rock','paper','scissor']
+    randomWeapon=random.choice(weapons)
+    if userWeapon=='nothing':
+      await ctx.send('Required argument `rock`,`paper`,or,`scissor` is missing.\nFor example try:`++rps rock`')
+    elif userWeapon=='rock' and randomWeapon=='paper':
+      embed=discord.Embed(
+        timestamp=datetime.datetime.utcnow(),
+        description='paper beats rock . I win !',
+        color=0xff00ff
+      )
+      embed.set_footer(text='\u200b')
+      await ctx.send(embed=embed)
+    elif userWeapon=='paper' and randomWeapon=='scissor':
+      embed=discord.Embed(
+        timestamp=datetime.datetime.utcnow(),
+        description='scissor beats paper . I win !',
+        color=0xff00ff
+      )
+      embed.set_footer(text='\u200b')
+      await ctx.send(embed=embed)
+    elif userWeapon=='scissor' and randomWeapon=='rock':
+      embed=discord.Embed(
+        timestamp=datetime.datetime.utcnow(),
+        description='rock beats scissor . I win !',
+        color=0xff00ff
+      )
+      embed.set_footer(text='\u200b')
+      await ctx.send(embed=embed)
+    elif userWeapon==randomWeapon:
+      embed=discord.Embed(
+        timestamp=datetime.datetime.utcnow(),
+        description='Its a tie since I choose '+userChoice+' too :)',
+        color=0xff00ff
+      )
+      embed.set_footer(text='\u200b')
+      await ctx.send(embed=embed)
+    else:
+      embed=discord.Embed(
+        timestamp=datetime.datetime.utcnow(),
+        description='You win !',
+        color=0xff00ff,
+      )
+      embed.set_footer(text='\u200b')
+      await ctx.send(embed=embed)
+bot.add_command(RockPaperScissor)
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 keep_alive()
 bot.run(os.getenv('TOKEN'))
-#DEVLOPED BY : WOLVERINE#3940
-#LINKEDIN : https://www.linkedin.com/in/harshit-kr-vishwakarma-b57b8b175/
-
-
-keep_alive()  #host your bot on a local server [not mandatory]
-bot.run(os.getenv('TOKEN'))  #creaTE a .env file and save TOKEN of the bot as TOKEN=  Your Token without "" or ''
