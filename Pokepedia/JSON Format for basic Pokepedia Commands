@@ -1,0 +1,193 @@
+#------------------------------------------------------JSON DATA-----------------------------------------------------------------------------------
+import json
+
+pokemonInfo = '''{       
+       
+            "bug":[
+            {
+                "strongAgainst":["Grass", "Psychic", "Dark"],
+                "weakAgainst":["Fighting","Flying","Poison","Ghost","Steel","Fire","Fairy"],
+                "resistantTo":["Fighting","Ground","Grass"],
+                "vulnerableTo":["Fighting","Ground","Grass"]
+            }
+            ],
+            "dark":[
+            {
+                "strongAgainst":["Ghost","Psychic"],
+                "weakAgainst":["Fighting","Dark","Fairy"],
+                "resistantTo":["Ghost","Psychic","Dark"],
+                "vulnerableTo":["Fighting","Bug","Fairy"]
+            }
+            ],
+            "dragon":[
+            {
+                "strongAgainst":["Dragon"],
+                "weakAgainst":["Steel","Fairy"],
+                "resistantTo":["Fire","Water","Grass","Electric"],
+                "VulnerableTo":["Ice","Dragon","Fairy"]
+            }
+            ],
+            "electric":[
+            {
+                "strongAgainst":["Flying","Water"],
+                "weakAgainst":["Ground","Grass","Electric","Dragon"],
+                "resistantTo":["Flying","Steel","Electric"],
+                "vulnerableTo":["Ground"]
+            }
+            ],
+            "fairy":[
+            {
+                "strongAgainst":["Fighting","Dragon","Dark"],
+                "weakAgainst":["Poison","Steel","Fire"],
+                "resistantTo":["Fighting","Bug","Dragon","Dark"],
+                "vulnerableTo":["Poison","Steel"]
+            }
+            ],
+            "fighting":[
+            {
+                "strongAgainst":["Normal","Rock","Steel","Ice","Dark"],
+                "weakAgainst":["Flying","Poison","Psychic","Bug","Ghost","Fairy"],
+                "resistantTo":["Rock","Bug","Dark"],
+                "vulnerableTo":["Flying","Psychic","Fairy"]
+            }
+            ],
+            "fire":[
+            {
+                "strongAgainst":["Bug","Steel","Grass","Ice"],
+                "weakAgainst":["Rock","Fire","Water","Dragon"],
+                "resistantTo":["Bug","Steel","Fire","Grass","Ice"],
+                "vulnerableTo":["Ground","Rock","Water"]
+            }
+            ],
+            "flying":[
+            {
+                "strongAgainst":["Fighting","Bug","Grass"],
+                "weakAgainst":["Rock","Steel","Electric"],
+                "resistantTo":["Fighting","Ground","Bug","Grass"],
+                "vulnerableTo":["Rock","Electric","Ice"]
+            }
+            ],
+            "ghost":[
+            {
+                "strongAgainst":["Ghost","Psychic"],
+                "weakAgainst":["Normal","Dark"],
+                "resistantTo":["Normal","Fighting","Poison","Bug"],
+                "vulnerableTo":["Ghost","Dark"]
+            }
+            ],
+            "grass":[
+            {
+                "strongAgainst":["Ground","Rock","Water"],  
+                "weakAgainst":["Flying","Poison","Bug","Steel","Fire","Grass","Dragon"],
+                "resistantTo":["Ground","Water","Grass","Electric"],
+                "vulnerableTo":["Flying","Poison","Bug","Fire","Ice"]
+            }],
+            "ground":[
+            {
+                "strongAgainst":["Poison","Rock","Steel","Fire","Electric"],
+                "weakAgainst":["Flying","Bug","Grass"],
+                "resistantTo":["Poison","Rock","Electric"], 
+                "vulnerableTo":["Water","Grass","Ice"]
+            }],
+            "ice":[
+            {
+                "strongAgainst":["Flying","Ground","Grass","Dragon"],
+                "weakAgainst":["Steel","Fire","Water","Ice"],
+                "resistantTo":["Ice"],
+                "vulnerableTo":["Fighting","Rock","Steel","Fire"]
+            }],
+            "normal":[
+            {
+                "strongAgainst":["Normal time is not strong against any type"],
+                "weakAgainst":["Rock","Ghost","Steel"],
+                "resistantTo":["Ghost"],
+                "vulnerableTo":["Fighting"]
+            }],
+            "poison":[
+            {
+                "strongAgainst":["Grass","Fairy"],
+                "weakAgainst":["Poison","Ground","Rock","Ghost","Steel"],
+                "resistantTo":["Fighting","Poison","Grass","Fairy"],
+                "vulnerableTo":["Ground","Psychic"]
+            }],
+            "psychic":[
+            {
+                "strongAgainst":["Fighting","Poison"],
+                "weakAgainst":["Steel","Psychic","Dark"],
+                "resistantTo":["Fighting","Psychic"],
+                "vulnerableTo":["Bug","Ghost","Dark"]
+            }],
+            "rock":[
+            {
+                "strongAgainst":["Flying","Bug","Fire","Ice"],
+                "weakAgainst":["Fighting","Ground","Steel"],
+                "resistantTo":["Normal","Flying","Poison","Fire"],
+                "vulnerableTo":["Fighting","Ground","Steel","Water","Grass"]
+            }],
+            "steel":[
+            {
+                "strongAgainst":["Rock","Ice","Fairy"],
+                "weakAgainst":["Steel","Fire","Water","Electric"],
+                "resistantTo":["Normal","Flying","Poison","Rock","Bug","Steel","Grass","Psychic","Ice","Dragon","Fairy"],
+                "vulnerableTo":["Fighting","Ground","Fire"]
+            }],
+            "water":[
+            {
+                "strongAgainst":["Ground","Rock","Fire"],
+                "weakAgainst":["Water","Grass","Dragon"],
+                "resistantTo":["Steel","Fire","Water","Ice"],
+                "vulnerableTo":["Grass","Electric"]
+            }]
+        
+    }''' 
+ 
+
+data = json.loads(pokemonInfo)
+
+@commands.command(aliases=['getInfo'])
+async def getPokemonInfo(ctx,Pokename='empty'):
+  if Pokename=='empty':
+    await ctx.send("Required Argument Missing")
+    return
+  titleName=Pokename.upper()
+  StrongAgainst=[]
+  WeakAgainst=[]
+  ResistantTo=[]
+  VulnerableTo=[]
+  for pokemonType in data[Pokename]:
+    s=pokemonType['strongAgainst'] 
+    for i in range(len(s)):
+      
+      StrongAgainst.append(s[i])      
+        
+  for pokemonType in data[Pokename]:
+    w=pokemonType['weakAgainst'] 
+    for i in range(len(w)):
+      
+      WeakAgainst.append(w[i])        
+       
+  for pokemonType in data[Pokename]:
+    r=pokemonType['resistantTo'] 
+    for i in range(len(r)):
+      
+      ResistantTo.append(r[i])
+    
+  for pokemonType in data[Pokename]:
+    v=pokemonType['vulnerableTo'] 
+    for i in range(len(v)):
+      
+      VulnerableTo.append(v[i])
+
+  embed=discord.Embed(
+    title=titleName+' TYPE',
+    color=0xff00ff,
+    timestamp=datetime.datetime.utcnow()
+  )
+  embed.add_field(name='Strong Against',value=StrongAgainst,inline=False)
+  embed.add_field(name='Weak Against',value=WeakAgainst,inline=False)
+  embed.add_field(name='Resistant To',value=ResistantTo,inline=False)
+  embed.add_field(name='Vulnerabel To',value=VulnerableTo,inline=False) 
+  await ctx.send(embed=embed)
+bot.add_command(getPokemonInfo)
+
+#-------------------------------------------------------------------------------------------------------------------------------------------------
