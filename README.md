@@ -28,6 +28,8 @@ A simple bot that give info on all 18 different types of pokemon . This is a sim
 ++name  
 #Search Pokemon images by name try : ++name pikachu
 
+#Play TicTacToe or Rock Paper Scissor or Ask 8 ball a question 
+
 #Support server for this bot : https://discord.gg/pbRtbJX5Sf
 
 #Invite the live version of this bot : bit.ly/invite_pokepedia
