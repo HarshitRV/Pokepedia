@@ -28,7 +28,10 @@ A simple bot that give info on all 18 different types of pokemon . This is a sim
 ++name  
 #Search Pokemon images by name try : ++name pikachu
 
-#Play TicTacToe or Rock Paper Scissor or Ask 8 ball a question 
+#FUN COMMANDS
+Tic Tac Toe (try ++ttt @mentionPlayer1 @mentionPlayer2)
+Rock Paper Scissor (try ++rps to play with bot) 
+Magic 8bll (Ask 8 ball a question using ++8ball<question>)
 
 #Support server for this bot : https://discord.gg/pbRtbJX5Sf
 
