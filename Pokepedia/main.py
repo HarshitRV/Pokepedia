@@ -43,7 +43,6 @@ async def halp(ctx):
   embed.add_field(name='Play Magic 8 ball',value='`Try ++8ball <question>`\n',inline=False)
   embed.add_field(name='Useful Links',value='[Support Server](https://discord.gg/pbRtbJX5Sf) | [GitHub](https://github.com/lucifer00911/Pokepedia) | [Invite](https://discord.com/oauth2/authorize?client_id=804665852221325342&permissions=379968&scope=bot) | [Vote !](https://top.gg/bot/804665852221325342/vote)',inline=False)
   embed.set_thumbnail(url="https://i.pinimg.com/originals/ce/cc/91/cecc913aee77c99b18d2043dbbd8bd72.gif")
-  embed.set_footer(text='\u200b')
   await ctx.send(embed=embed)
 
 bot.add_command(halp)
