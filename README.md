@@ -9,23 +9,22 @@ A simple bot that give info on all 18 different types of pokemon . This is a sim
 * ++dark  
 * ++dragon 
 * ++electric 
-* ++fairy |
-* ++fighting |
-* ++fire |
-* ++flying |
-* ++ghost |
-* ++grass |
-* ++ground |
-* ++ice |
-* ++normal |
-* ++poison |
-* ++psychic |
-* ++rock |
-* ++steel |
-* ++water |
-* ++search / ++s |
-# Search Pokemon by number eg : ++s 1 |
-* ++name  
+* ++fairy 
+* ++fighting 
+* ++fire 
+* ++flying 
+* ++ghost 
+* ++grass 
+* ++ground
+* ++ice 
+* ++normal 
+* ++poison 
+* ++psychic 
+* ++rock 
+* ++steel 
+* ++water 
+* ++search / ++s 
+# Search Pokemon by number eg : ++s 1
 # Search Pokemon images by name try : ++name pikachu
 
 # FUN COMMANDS
