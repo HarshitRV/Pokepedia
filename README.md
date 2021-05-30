@@ -34,4 +34,4 @@ A simple bot that give info on all 18 different types of pokemon . This is a sim
 
 # Support server for this bot : [Support](https://discord.gg/pbRtbJX5Sf)
 
-# Invite the live version of this bot : [INVITE](bit.ly/invite_pokepedia)
+# Invite the live version of this bot : [INVITE](https://discord.com/oauth2/authorize?client_id=804665852221325342&scope=bot&response_type=code)
