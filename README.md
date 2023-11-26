@@ -1,4 +1,4 @@
-# Pokepedia
+# Pokepedia (NOT MAINTAINED ANYMORE ⚠️)
 A simple bot that give info on all 18 different types of pokemon . This is a simple bot curently hosted on a repl.it .Still working on it to make it more interactive and engaging . People interested in making contributions or suggesting ideas are welocome . My goal is to add more knowledge to the bot no in depth knowledge but enough to make it easier for people who play Pokemon GO and other related game .
 
 # Command prefix : ++
